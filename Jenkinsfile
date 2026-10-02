@@ -33,7 +33,8 @@ pipeline {
                     withSonarQubeEnv('SonarQube') {
                         sh """
                             mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar \
-                              -Dsonar.projectKey=${SONAR_PROJECT_KEY}
+                              -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                              -Dsonar.token=\$SONAR_AUTH_TOKEN
                         """
                     }
                 }
