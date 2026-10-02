@@ -32,7 +32,7 @@ pipeline {
                 dir('backend') {
                     withSonarQubeEnv('SonarQube') {
                         sh """
-                            mvn sonar:sonar \
+                            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar \
                               -Dsonar.projectKey=${SONAR_PROJECT_KEY}
                         """
                     }
